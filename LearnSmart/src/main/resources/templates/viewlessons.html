@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Lessons</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/viewlessons.css}">
+</head>
+<body>
+    <h1 th:if="${course != null}" th:text="${course.name}"></h1>
+    <div class="lessons-container">
+        <div class="lesson-item" th:each="lesson : ${lessons}">
+            <h2 th:if="${lesson != null}" th:text="${lesson.name}"></h2>
+            <p th:if="${lesson != null}" th:text="${lesson.content}"></p>
+            <a th:if="${lesson != null && lesson.videoUrl != null}" th:href="${lesson.videoUrl}" target="_blank">Watch Video</a>
+           <!--   <a th:href="@{'/updatelesson/' + ${course.id} + '/' + ${lesson.id}}" class="update-btn">Update</a> -->
+            <a th:href="@{'/deletelesson/' + ${course.id} + '/' + ${lesson.id}}" class="delete-btn"
+                th:onclick="'return confirm(\'Are you sure you want to delete this lesson?\');'">Delete</a>
+        </div>
+    </div>
+</body>
+</html>

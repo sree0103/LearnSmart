@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/updatelesson.css}">
+    <title>Update Lesson</title>
+</head>
+<body>
+    <div class="updatelesson">
+        <form method="post" th:action="@{/updatelesson/{courseId}/{lessonId}(courseId=${courseId},lessonId=${lesson.id})}" th:object="${lesson}">
+            <input type="hidden" th:field="*{id}" />
+            <h1>Update Lesson</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required /><br /><br />
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" th:field="*{content}" required></textarea><br /><br />
+            <label for="videoUrl">Video URL:</label>
+            <input type="text" id="videoUrl" name="videoUrl" th:field="*{videoUrl}" required /><br /><br />
+            <button type="submit">Update Lesson</button>
+        </form>
+    </div>
+</body>
+</html>

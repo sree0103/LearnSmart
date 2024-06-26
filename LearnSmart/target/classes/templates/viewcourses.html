@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Courses</title>
+<link rel="stylesheet" type="text/css" th:href="@{/viewcourses.css}">
+</head>
+<body>
+	<h1>Courses</h1>
+    <div class="courses-container">
+        <div class="course-item" th:each="course : ${courses}">
+            <h2 th:text="${course.name}"></h2>
+            <p th:text="${course.description}"></p>
+            <a th:href="@{'/viewlessons/' + ${course.id}}">View Lessons</a> <br>
+            <a th:href="@{'/updatecourse/' + ${course.id}}" class="update-btn">Update</a><br>
+            <a th:href="@{'/deletecourse/' + ${course.id}}" class="delete-btn"
+                th:onclick="'return confirm(\'Are you sure you want to delete this course and all its lessons?\');'">Delete</a>
+        </div>
+    </div>
+</body>
+</html>

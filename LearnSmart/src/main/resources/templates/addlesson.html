@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel=stylesheet type=text/css th:href="@{/addlesson.css}">
+<head>
+<title>Add Lesson</title>
+</head>
+<body>
+	<div class="addlesson">
+		<form action="savelesson" method="post" enctype="multipart/form-data">
+			<h1>Add Lesson</h1>
+			<label>Name:</label> 
+			<input type="text" id="name" name="name"
+				required /><br /> <br> 
+				<label>Content:</label> <input
+				type="text" id="content" name="content" required /><br /> <br>
+			<label>Video URL:</label> <input type="text" id="videoUrl"
+				name="videoUrl" required /><br /> <br> <label>Select
+				Course:</label> <select id="course" name="course.id" required>
+				<option th:each="course : ${courses}" th:value="${course.id}"
+					th:text="${course.name}"></option>
+			</select> <br>
+			<br>
+			<button type="submit">Add Lesson</button>
+		</form>
+	</div>
+</body>
+</html>

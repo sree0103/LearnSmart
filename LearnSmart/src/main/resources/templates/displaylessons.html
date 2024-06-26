@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Display Lessons</title>
+<link rel="stylesheet" type="text/css" th:href="@{/displaylessons.css}">
+</head>
+<body>
+	<h1>Lessons</h1>
+	<div class="lessons-container">
+		<div class="lesson-card" th:each="lesson : ${lessons}">
+			<h2 th:text="${lesson.name}"></h2>
+			<p th:text="${lesson.content}"></p>
+			<th:block th:if="${lesson.course != null}">
+				<p th:text="${lesson.course.name}"></p>
+			</th:block>
+			<a th:href="${lesson.videoUrl}" target="_blank">
+				<video th:src="${lesson.videoUrl}" controls></video>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

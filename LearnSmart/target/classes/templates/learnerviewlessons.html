@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${course.name} + ' Lessons'">Course Lessons</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/viewlessons.css}">
+</head>
+<body>
+    <h1 th:text="${course.name} + ' Lessons'">Course Lessons</h1>
+    <div class="lessons-container">
+        <div class="lesson-item" th:each="lesson : ${lessons}">
+            <h2  th:if="${lesson != null}" th:text="${lesson.name}"></h2>
+            <p  th:if="${lesson != null}" th:text="${lesson.content}"></p>
+           <a th:if="${lesson != null && lesson.videoUrl != null}" th:href="${lesson.videoUrl}" target="_blank">Watch Video</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/updatecourses.css}">
+    <title>Update Course</title>
+</head>
+<body>
+    <div class="updatecourse">
+        <form action="#" method="post" th:action="@{/updatecourse/{id}(id=${course.id})}" th:object="${course}">
+            <input type="hidden" th:field="*{id}" />
+            <h1>Update Course</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required /><br /><br />
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" th:field="*{description}" required></textarea><br /><br />
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" th:field="*{category}" required /><br /><br />
+            <!-- <label for="thumbnail">Thumbnail:</label>
+            <input type="text" id="thumbnail" name="thumbnail" th:field="*{thumbnail}" required /><br /><br />  -->
+            <label for="status">Status:</label>
+            <select id="status" name="status" th:field="*{status}" required>
+                <option value="Active" th:selected="${course.status == 'Active'}">Active</option>
+                <option value="Inactive" th:selected="${course.status == 'Inactive'}">Inactive</option>
+            </select><br /><br />
+            <!-- Add more fields as needed -->
+            <button type="submit">Update Course</button>
+        </form>
+    </div>
+</body>
+</html>

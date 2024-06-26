@@ -1,0 +1,45 @@
+body {
+    background-color: #546A76;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.lessons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+.lesson-item {
+    background-color:  #88A0A8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.lesson-item h2 {
+    color: #000;
+    margin-top: 0;
+}
+
+.lesson-item p {
+    color: #000;
+}
+
+.lesson-item a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    text-decoration: underline;
+}
